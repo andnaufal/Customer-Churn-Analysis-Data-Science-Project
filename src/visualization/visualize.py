@@ -11,6 +11,8 @@ data = pd.read_pickle("../../../Customer-Churn-Analysis-Data-Science-Project/dat
 #distribution of target analysis
 df = data
 sns.countplot(x ='Churn Label', data = df)
+# Save the plot
+plt.savefig('../../reports/figures/Distribution_of_the_taget_variable.png', transparent=False)
 plt.show()
 
 #distribution of independece variable 
@@ -22,19 +24,23 @@ sns.countplot(x="Partner", data=df, ax=axes[0, 2])
 sns.countplot(x="Paperless Billing", data=df, ax=axes[1, 0])
 sns.countplot(x="Dependents", data=df, ax=axes[1, 1])
 sns.countplot(x="Phone Service", data=df, ax=axes[1, 2])
+plt.savefig('../../reports/figures/distribution_of_independece_variable.png', transparent=False)
 plt.show()
 
 sns.countplot(x="Internet Service", data = df)
+plt.savefig('../../reports/figures/distribution_of_independece_variable_phone_service.png', transparent=False)
 plt.show()
 
 fig, axes = plt.subplots(1, 2, figsize=(12, 7), sharey=True) 
 sns.countplot(x="Contract", data=df, ax=axes[0])
 sns.countplot(x="Payment Method", data=df, ax=axes[1])
+plt.savefig('../../reports/figures/contract_payment.png', transparent=False)
 plt.show()
 
 fig, axes = plt.subplots(1,2, figsize=(12, 7))
 sns.histplot(df["Tenure Months"], ax=axes[0])
 sns.histplot(df["Monthly Charges"], ax=axes[1])
+plt.savefig('../../reports/figures/tenure_monthlycharges.png', transparent=False)
 plt.show()
 
 ## Set and compute the Correlation Matrix
@@ -53,6 +59,7 @@ cmap = sns.diverging_palette(220, 10, as_cmap=True)
 # Draw the heatmap with the mask and correct aspect ratio
 sns.heatmap(corr, mask=mask, cmap=cmap, vmax=.5, center=0,
             square=True, linewidths=.5, cbar_kws={"shrink": .5})
+plt.savefig('../../reports/figures/heatmap.png', transparent=False)
 plt.show()
 
 
